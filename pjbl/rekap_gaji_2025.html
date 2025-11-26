@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekap Gaji Karyawan 2025</title>
+<style>
+  body {font-family: Arial, sans-serif; margin: 30px; background: #f4f6f7;}
+  h1 {text-align: center; margin-bottom: 20px;}
+  table {width: 100%; border-collapse: collapse; background: #fff;}
+  th, td {border: 1px solid #999; padding: 6px; text-align: center;}
+  th {background: #dfe6e9;}
+  input[type="number"] {width: 100%; box-sizing: border-box; text-align: center;}
+  tfoot td {font-weight: bold; background: #eee;}
+</style>
+</head>
+<body>
+
+<h1>Rekap Gaji Karyawan Agustus–Oktober 2025</h1>
+
+<table id="tabelGaji">
+<thead>
+<tr>
+<th>No</th>
+<th>Tgl</th>
+<th>Hari</th>
+<th>Nama</th>
+<th>NIK</th>
+<th>Bagian</th>
+<th>Gaji/Hari (Rp)</th>
+<th>Total Hari</th>
+<th>Total Gaji</th>
+<th>Lembur (Rp)</th>
+<th>Jam Lembur</th>
+<th>Total Lembur</th>
+<th>Grand Total</th>
+</tr>
+</thead>
+<tbody id="tbodyGaji">
+
+<tr>
+  <td>1</td>
+  <td>16/8/2025</td>
+  <td></td>
+  <td>MIRTAWATI</td>
+  <td>202508059</td>
+  <td>ADM. PROD</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>20/8/2025</td>
+  <td></td>
+  <td>LAILA NUR FADILAH</td>
+  <td>202508086</td>
+  <td>ADM. GUDANG</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>15/8/2025</td>
+  <td></td>
+  <td>HUSNAH</td>
+  <td>202508013</td>
+  <td>OPERATOR</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>15/8/2025</td>
+  <td></td>
+  <td>AYU PARIHA</td>
+  <td>202508024</td>
+  <td>OPERATOR</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>15/8/2025</td>
+  <td></td>
+  <td>PARTINI</td>
+  <td>202508067</td>
+  <td>OPERATOR</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>19/9/2025</td>
+  <td></td>
+  <td>OMINAH NURHAYATI</td>
+  <td>202509034</td>
+  <td>OPERATOR</td>
+  <td><input type="number" class="gajiHari" value="0"></td>
+  <td><input type="number" class="totalHari" value="0"></td>
+  <td class="totalGaji">0</td>
+  <td><input type="number" class="lemburRp" value="0"></td>
+  <td><input type="number" class="jamLembur" value="0"></td>
+  <td class="totalLembur">0</td>
+  <td class="grandTotal">0</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+  <td colspan="12">Grand Total Keseluruhan</td>
+  <td id="grandTotalKeseluruhan">0</td>
+</tr>
+</tfoot>
+</table>
+
+<script>
+function hitung() {
+  const rows = document.querySelectorAll("#tabelGaji tbody tr");
+  let totalSemua = 0;
+
+  rows.forEach(row => {
+    const gajiHari = parseFloat(row.querySelector(".gajiHari").value) || 0;
+    const totalHari = parseFloat(row.querySelector(".totalHari").value) || 0;
+    const lemburRp = parseFloat(row.querySelector(".lemburRp").value) || 0;
+    const jamLembur = parseFloat(row.querySelector(".jamLembur").value) || 0;
+
+    const totalGaji = gajiHari * totalHari;
+    const totalLembur = lemburRp * jamLembur;
+    const grandTotal = totalGaji + totalLembur;
+
+    row.querySelector(".totalGaji").textContent = totalGaji.toLocaleString("id-ID");
+    row.querySelector(".totalLembur").textContent = totalLembur.toLocaleString("id-ID");
+    row.querySelector(".grandTotal").textContent = grandTotal.toLocaleString("id-ID");
+
+    totalSemua += grandTotal;
+  });
+
+  document.getElementById("grandTotalKeseluruhan").textContent = totalSemua.toLocaleString("id-ID");
+}
+
+document.querySelectorAll("input").forEach(i => i.addEventListener("input", hitung));
+</script>
+
+</body>
+</html>
